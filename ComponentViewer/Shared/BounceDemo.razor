@@ -1,37 +1,51 @@
 ﻿<div style="width:600px;height:600px;">
-<div class= "h-100 d-flex flex-column">
-    <div class="flex-fill d-flex flex-column">
-        <div class="scene-body">
-            <div class="scene">
-                <div class="floor"></div>
-                <div class="cube">
-                    <div class="front"></div>
-                    <div class="back"></div>
-                    <div class="left"></div>
-                    <div class="right"></div>
-                    <div class="top">
-                        <div class="ballShadow"></div>
+    <div class="h-100 d-flex flex-column">
+        <div class="flex-fill d-flex flex-column">
+            <div class="scene-body">
+                <div class="scene">
+                    <div class="floor"></div>
+                    <div class="cube">
+                        <div class="front"></div>
+                        <div class="back"></div>
+                        <div class="left"></div>
+                        <div class="right"></div>
+                        <div class="top">
+                            <div class="ballShadow"></div>
+                        </div>
+                        <div class="bottom"></div>
                     </div>
-                    <div class="bottom"></div>
+                    <div class="ball"></div>
                 </div>
-                <div class="ball"></div>
             </div>
         </div>
+        <div class="d-flex flex-row p-3 bg-dark text-white-50 mb-2">
+            <input class="form-control col-2 mr-3" type="color" id="favcolor" name="favcolor" @bind="@ballColor" />
+            <input class="form-control col-2" type="color" id="favcolor" name="favcolor" @bind="@boxColor" />
+            <div class="m-2 col-8"><small>Based on work shared by <strong>Amit Sheen</strong>.</small></div>
+        </div>
     </div>
-    <div class="d-flex flex-row p-3 bg-dark text-white-50 mb-2">
-        <input class="form-control col-2 mr-3" type="color" id="favcolor" name="favcolor" @bind="@ballColor"/>
-        <input class="form-control col-2" type="color" id="favcolor" name="favcolor" @bind="@boxColor"/>
-        <div class="m-2 col-8"><small>Based on work shared by <strong>Amit Sheen</strong>.</small></div>
-    </div>
-</div>
 </div>
 @code {
+    [Parameter]
+    public string BallColor { get; set; }
+    [Parameter]
+    public string BoxColor { get; set; }
+
+
+
+    protected override void OnParametersSet()
+    {
+        ballColor = BallColor;
+        boxColor = BoxColor;
+        base.OnParametersSet();
+    }
+
     string ballColor = "#ff00ff";
     string boxColor = "#00ff00";
 }
 <style>
 
-   :root {
+    :root {
         --boxColor: @($"{boxColor}19");
         --rotateSpeed: 10s;
         --bounceSpeed: 1.5s;
@@ -76,14 +90,18 @@
         left: -0.5em;
         bottom: 1em;
         background: radial-gradient( circle at top, var(--ballColor), 40%, #000 );
-        animation: 
-            ballBounce var(--bounceSpeed) infinite ease-out,
-            sceneRotate var(--rotateSpeed) infinite linear reverse;
+        animation: ballBounce var(--bounceSpeed) infinite ease-out, sceneRotate var(--rotateSpeed) infinite linear reverse;
     }
 
     @@keyframes ballBounce {
-        0%, 100% { bottom: 0.5em; }
-        50% { bottom: 3em; animation-timing-function: ease-in; }
+        0%, 100% {
+            bottom: 0.5em;
+        }
+
+        50% {
+            bottom: 3em;
+            animation-timing-function: ease-in;
+        }
     }
 
     .ballShadow {
@@ -91,13 +109,20 @@
         width: 100%;
         height: 100%;
         background: radial-gradient(#0007,#0000 50%);
-
         animation: ballShadow var(--bounceSpeed) infinite ease-out;
     }
 
     @@keyframes ballShadow {
-        0%, 8%, 93.5% { transform: scale(1); opacity: 1;}
-        50% { transform: scale(2); opacity: 0.5; animation-timing-function: ease-out; }
+        0%, 8%, 93.5% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        50% {
+            transform: scale(2);
+            opacity: 0.5;
+            animation-timing-function: ease-out;
+        }
     }
 
     .cube {
@@ -106,13 +131,18 @@
         transform-style: preserve-3d;
         position: absolute;
         bottom: -1em;
-        left: -1em;      
-
+        left: -1em;
         animation: cubeHeight var(--bounceSpeed) infinite linear;
     }
+
     @@keyframes cubeHeight {
-        0%, 100% { height: 1.5em; }
-        8%, 93.5% { height: 2em;  }
+        0%, 100% {
+            height: 1.5em;
+        }
+
+        8%, 93.5% {
+            height: 2em;
+        }
     }
 
     .front, .back, .left, .right {
@@ -139,7 +169,7 @@
         transform: rotateY(270deg) translateZ(1em);
     }
 
-    .top { 
+    .top {
         overflow: hidden;
         position: absolute;
         width: 2em;
@@ -147,16 +177,17 @@
         background: var(--boxColor);
         transform: translateY(-50%) rotateX(90deg);
         box-shadow: 0 0 0.5em #000a inset;
-    } 
-    .bottom {      
+    }
+
+    .bottom {
         position: absolute;
         width: 2em;
         height: 2em;
         background: #0000;
         transform: translateY(48%) rotateX(90deg);
         box-shadow: 0 0 0.5em #000a;
-    }  
-   
+    }
+
     .floor {
         width: 15em;
         height: 15em;

@@ -4,14 +4,14 @@
 
 Welcome to your new app.
 
-<select class="custom-select" @bind="@selected">
-    <Enumerator Items="@components">
-        <option value="@context.typeName">@context.OptionName</option>
+<select class="custom-select" @bind="@optionId">
+    <Enumerator Items="@ComponentMaps">
+        <option value="@context.Id">@context.DisplayName</option>
     </Enumerator>
 </select>
-@if (string.IsNullOrWhiteSpace(selected) is not true)
+@if (optionId is not null)
 {
     <div class="p-3">
-        <ComponentView @key="@selected" TypeString="@selected" Values="@Values" />
+        <ComponentView @key="@optionId" TypeString="@typeName" Values="@Values" />
     </div>
 }

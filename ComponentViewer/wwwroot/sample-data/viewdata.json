@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "2bb41144-8c77-436a-8882-ff70a4b54e3c",
+    "DisplayName": "Brian Parker",
+    "ComponentType": "ComponentViewer.Shared.StackFlare",
+    "ComponentParameters": null
+  },
+  {
+    "Id": "27e57109-11ac-4749-bfc8-4aec90510cbc",
+    "DisplayName": "Survey",
+    "ComponentType": "ComponentViewer.Shared.SurveyPrompt",
+    "ComponentParameters": { "Title": "There are 10 kinds of people in the world. Those that understand binary and those that dont." }
+  },
+  {
+    "Id": "6aee5f17-c085-473b-91a1-d9e68d20df0c",
+    "DisplayName": "Fetch Data",
+    "ComponentType": "ComponentViewer.Pages.FetchData",
+    "ComponentParameters": null
+  },
+  {
+    "Id": "1a25afc8-21b6-42e6-b419-f652d698a99a",
+    "DisplayName": "Counter",
+    "ComponentType": "ComponentViewer.Pages.Counter",
+    "ComponentParameters": null
+  },
+  {
+    "Id": "f5c08d8a-2b59-46d0-b3d3-795c60b88815",
+    "DisplayName": "Bounce Magenta / Green",
+    "ComponentType": "ComponentViewer.Shared.BounceDemo",
+    "ComponentParameters": {
+      "BallColor": "#ff00ff",
+      "BoxColor": "#00ff00"
+    }
+  },
+  {
+    "Id": "6e0ae3c0-e280-4a95-b7ac-a6009e59e054",
+    "DisplayName": "Bounce Blue / Red",
+    "ComponentType": "ComponentViewer.Shared.BounceDemo",
+    "ComponentParameters": {
+      "BallColor": "#0000ff",
+      "BoxColor": "#ff0000"
+    }
+  }
+]
