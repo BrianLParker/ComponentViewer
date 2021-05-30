@@ -6,13 +6,12 @@ Welcome to your new app.
 
 <select class="custom-select" @bind="@selected">
     <Enumerator Items="@components">
-        <option value="@context.OptionName">@context.OptionName</option>
+        <option value="@context.typeName">@context.OptionName</option>
     </Enumerator>
 </select>
-
-@if (!string.IsNullOrWhiteSpace(selected))
+@if (string.IsNullOrWhiteSpace(selected) is not true)
 {
-    <ComponentView Type="SelectedType" Parameters="ComponentParameters" />
+    <ComponentView @key="@selected" TypeString="@selected" Parameters="ComponentParameters" />
 }
 
 

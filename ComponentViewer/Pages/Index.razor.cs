@@ -11,15 +11,15 @@ namespace ComponentViewer.Pages
         string selected;
 
 
-        Type SelectedType => components.FirstOrDefault(a => a.OptionName == selected).type;
+        string SelectedType => components.FirstOrDefault(a => a.OptionName == selected).typeName;
         Dictionary<string, object> ComponentParameters => components.FirstOrDefault(a => a.OptionName == selected).parameters;
 
-        public (string OptionName, Type type, Dictionary<string, object> parameters)[] components =
-            new (string, Type, Dictionary<string, object>)[]
+        public (string OptionName, string typeName, Dictionary<string, object> parameters)[] components =
+            new (string, string, Dictionary<string, object>)[]
             {
-                ("Survey", typeof(SurveyPrompt), new Dictionary<string, object> { { "Title", "How is Blazor working for you?" } } ),
-                ("Fetch Data", typeof(FetchData), new Dictionary<string, object>()),
-                ("Counter", typeof(Counter), new Dictionary<string, object>() )
+                ("Survey", "ComponentViewer.Shared.SurveyPrompt", new Dictionary<string, object> { { "Title", "How is Blazor working for you?" } } ),
+                ("Fetch Data", "ComponentViewer.Pages.FetchData", new Dictionary<string, object>()),
+                ("Counter", "ComponentViewer.Pages.Counter", new Dictionary<string, object>() )
             };
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ComponentViewer.Pages;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 
@@ -10,10 +11,8 @@ namespace ComponentViewer.Shared
         [Parameter]
         public Type Type { get; set; }
 
-
         [Parameter]
         public string TypeString { get; set; }
-
 
         [Parameter]
         public Dictionary<string, object> Parameters { get; set; }
@@ -26,7 +25,6 @@ namespace ComponentViewer.Shared
                 {
                     throw new Exception("You must use either Type or the TypeString paramater");
                 }
-
                 Type = Type.GetType(TypeString);
             }
 
