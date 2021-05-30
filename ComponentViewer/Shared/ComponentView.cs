@@ -13,8 +13,29 @@ namespace ComponentViewer.Shared
         [Parameter]
         public string TypeString { get; set; }
 
+        private Dictionary<string, object> parameters;
+
         [Parameter]
-        public Dictionary<string, object> Parameters { get; set; }
+        public Dictionary<string, string> Values { get; set; }
+
+        protected override void OnParametersSet()
+        {
+            if (Values is null)
+            {
+                parameters = null;
+            }
+            else
+            {
+                parameters = new Dictionary<string, object>();
+                foreach (var pair in Values)
+                {
+                    parameters[pair.Key] = pair.Value;
+                }
+            }
+            base.OnParametersSet();
+        }
+
+
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
@@ -31,9 +52,9 @@ namespace ComponentViewer.Shared
             {
                 builder.OpenComponent(1, Type);
 
-                if (Parameters is not null)
+                if (parameters is not null)
                 {
-                    builder.AddMultipleAttributes(2, Parameters);
+                    builder.AddMultipleAttributes(2, parameters);
                 }
                 builder.CloseComponent();
             }

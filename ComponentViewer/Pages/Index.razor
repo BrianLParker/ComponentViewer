@@ -12,6 +12,6 @@ Welcome to your new app.
 @if (string.IsNullOrWhiteSpace(selected) is not true)
 {
     <div class="p-3">
-        <ComponentView @key="@selected" TypeString="@selected" Parameters="ComponentParameters" />
+        <ComponentView @key="@selected" TypeString="@selected" Values="@Values" />
     </div>
 }
