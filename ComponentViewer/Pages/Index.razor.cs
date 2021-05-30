@@ -1,18 +1,14 @@
 using System.Collections.Generic;
-using System;
-using Microsoft.AspNetCore.Components;
-using ComponentViewer.Shared;
 using System.Linq;
+using Microsoft.AspNetCore.Components;
 
 namespace ComponentViewer.Pages
 {
     public partial class Index : ComponentBase
     {
-        string selected;
+        private string selected = "ComponentViewer.Shared.StackFlare";
 
-
-        string SelectedType => components.FirstOrDefault(a => a.OptionName == selected).typeName;
-        Dictionary<string, object> ComponentParameters => components.FirstOrDefault(a => a.typeName == selected).parameters;
+        private Dictionary<string, object> ComponentParameters => components.FirstOrDefault(a => a.typeName == selected).parameters;
 
         public (string OptionName, string typeName, Dictionary<string, object> parameters)[] components =
             new (string, string, Dictionary<string, object>)[]

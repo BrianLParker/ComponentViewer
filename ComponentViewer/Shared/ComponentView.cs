@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using ComponentViewer.Pages;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 
@@ -19,9 +18,9 @@ namespace ComponentViewer.Shared
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            if(Type is null)
+            if (Type is null)
             {
-                if(string.IsNullOrWhiteSpace(TypeString))
+                if (string.IsNullOrWhiteSpace(TypeString))
                 {
                     throw new Exception("You must use either Type or the TypeString paramater");
                 }
