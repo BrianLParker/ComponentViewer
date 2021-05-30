@@ -19,7 +19,9 @@ namespace ComponentViewer.Pages
             {
                 ("Survey", "ComponentViewer.Shared.SurveyPrompt", new Dictionary<string, object> { { "Title", "How is Blazor working for you?" } } ),
                 ("Fetch Data", "ComponentViewer.Pages.FetchData", new Dictionary<string, object>()),
-                ("Counter", "ComponentViewer.Pages.Counter", new Dictionary<string, object>() )
+                ("Counter", "ComponentViewer.Pages.Counter", new Dictionary<string, object>() ),
+                ("Brian Parker", "ComponentViewer.Shared.StackFlare", new Dictionary<string, object>() ),
+                ("Bounce", "ComponentViewer.Shared.BounceDemo", new Dictionary<string, object>() )
             };
     }
 }
