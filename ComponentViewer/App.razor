@@ -2,6 +2,11 @@
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
+    <Navigating>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <h1>Changing Page</h1>
+        </LayoutView>
+    </Navigating>
     <NotFound>
         <LayoutView Layout="@typeof(MainLayout)">
             <p>Sorry, there's nothing at this address.</p>
