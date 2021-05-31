@@ -2,7 +2,7 @@
 // Copyright (c) 2021, Brian Parker
 // ===================================
 
-namespace ComponentViewer.Shared
+namespace ComponentViewer.Views.Shared
 {
     public partial class StackFlare
     {

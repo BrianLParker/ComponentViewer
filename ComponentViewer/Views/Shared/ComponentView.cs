@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 
-namespace ComponentViewer.Shared
+namespace ComponentViewer.Views.Shared
 {
     public class ComponentView : ComponentBase
     {

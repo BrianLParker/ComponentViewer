@@ -4,7 +4,7 @@
 
 Welcome to your new app.
 
-<select class="custom-select" @bind="@optionId">
+<select class="custom-select mt-3" @bind="@optionId">
     <Enumerator Items="@ComponentMaps">
         <option value="@context.Id">@context.DisplayName</option>
     </Enumerator>
@@ -15,3 +15,5 @@ Welcome to your new app.
         <ComponentView @key="@optionId" TypeString="@typeName" Values="@Values" />
     </div>
 }
+
+<DecisionNodeViewer />

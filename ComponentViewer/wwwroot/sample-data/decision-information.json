@@ -1,0 +1,28 @@
+﻿{
+  "Decisions": [
+    {
+      "Value": "value1",
+      "DisplayName": "Home",
+      "Page": "",
+      "ParameterString": null
+    },
+    {
+      "Value": "value2",
+      "DisplayName": "Counter",
+      "Page": "counter",
+      "ParameterString": null
+    },
+    {
+      "Value": "value3",
+      "DisplayName": "FetchData",
+      "Page": "fetchdata",
+      "ParameterString": null
+    },
+    {
+      "Value": "value4",
+      "DisplayName": "User",
+      "Page": "user",
+      "ParameterString": "/686437f1-d480-4fb3-ae1e-d0552adf4514"
+    }
+  ]
+}

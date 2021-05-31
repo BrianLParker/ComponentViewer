@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 
-namespace ComponentViewer.Shared
+namespace ComponentViewer.Views.Shared
 {
     public partial class Enumerator<T> : ComponentBase
     {

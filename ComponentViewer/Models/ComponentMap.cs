@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ComponentViewer.Pages
+namespace ComponentViewer.Models
 {
     public class ComponentMap
     {

@@ -1,0 +1,7 @@
+﻿<h3>Decision Node</h3>
+
+<select class="form-control mt-3" @bind="@NodeValue">
+    <Enumerator Items="@DecisionNode.Decisions" >
+        <option value="@context.Value">@context.DisplayName</option>
+    </Enumerator>
+</select>
