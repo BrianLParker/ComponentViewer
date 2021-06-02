@@ -18,10 +18,15 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex flex-row p-3 bg-dark text-white-50 mb-2">
-            <input class="form-control col-2 mr-3" type="color" id="favcolor" name="favcolor" @bind="@ballColor" />
-            <input class="form-control col-2" type="color" id="favcolor" name="favcolor" @bind="@boxColor" />
-            <div class="m-2 col-8"><small>Based on work shared by <strong>Amit Sheen</strong>.</small></div>
+        <div>
+            <div class="d-flex flex-row p-3 bg-dark text-white-50">
+                <input class="form-control col-2 mr-3" type="color" id="favcolor" name="favcolor" @bind-value="@ballColor" @bind-value:event="oninput" />
+                <input class="form-control col-2" type="color" id="favcolor" name="favcolor" @bind-value="@boxColor" @bind-value:event="oninput" />
+                <div class="m-2 col-8"><small>Based on work shared by <strong>Amit Sheen</strong>.</small></div>
+            </div>
+            <div class="bg-dark p-3 mb-2">
+                <input type="range" class="form-control-range" id="formControlRange" @bind-value="@Angle" min="0" max="359" @bind-value:event="oninput" />
+            </div>
         </div>
     </div>
 </div>
@@ -30,8 +35,8 @@
     public string BallColor { get; set; }
     [Parameter]
     public string BoxColor { get; set; }
-
-
+    [Parameter]
+    public int Angle { get; set; }
 
     protected override void OnParametersSet()
     {
@@ -72,9 +77,9 @@
     .scene {
         position: relative;
         transform-style: preserve-3d;
-        animation: sceneRotate var(--rotateSpeed) infinite linear;
+        transform: rotateY(@(Angle)deg);
     }
-
+@*        animation: sceneRotate var(--rotateSpeed) infinite linear; *@
     @@keyframes sceneRotate {
         to {
             transform: rotateY(360deg);
@@ -90,7 +95,8 @@
         left: -0.5em;
         bottom: 1em;
         background: radial-gradient( circle at top, var(--ballColor), 40%, #000 );
-        animation: ballBounce var(--bounceSpeed) infinite ease-out, sceneRotate var(--rotateSpeed) infinite linear reverse;
+        transform: rotateY(@(-Angle)deg);
+        animation: ballBounce var(--bounceSpeed) infinite ease-out ;
     }
 
     @@keyframes ballBounce {
